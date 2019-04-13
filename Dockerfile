@@ -1,5 +1,5 @@
 ################## Client ####################
-FROM node:carbon AS client-builder
+FROM node:alpine AS client-builder
 WORKDIR /app
 COPY . .
 

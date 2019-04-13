@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const apiUrl = "http://127.0.0.1:8080"
+const apiUrl = "http://127.0.0.1:20000"
 
 const get = (path) => {
     return axios.get(apiUrl + path, getOptions())
