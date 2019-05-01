@@ -8,7 +8,7 @@
                 </div>
                 <div class="field">
                     <span>Password</span>
-                    <input type="password" v-model="password" autofocus >
+                    <input type="password" v-model="password" autofocus>
                 </div>
                 <div class="field">
                     <button @click="submit">Submit</button>
@@ -25,6 +25,7 @@
 import request from "~/assets/js/request";
 export default {
     name: "Login",
+    middleware: "notAuthenticated",
     data: function() {
         return {
             show: false,
@@ -41,16 +42,18 @@ export default {
             else this.getToken();
         },
         getToken() {
-            request.getToken(this.username, this.password).then(res => {
-                const serverData = res.data
-                if(serverData.ok){
-                    this.$store.commit("setTokenStr", serverData.data);
-                    this.$router.push("/");
-                }else {
-                    this.setError(serverData.errorMsg)
-                }
-            })
-            .catch(_ => {})
+            request
+                .getToken(this.username, this.password)
+                .then(res => {
+                    const serverData = res.data;
+                    if (serverData.ok) {
+                        this.$store.commit("setTokenStr", serverData.data);
+                        this.$router.push("/");
+                    } else {
+                        this.setError(serverData.errorMsg);
+                    }
+                })
+                .catch(_ => {});
         },
         setError: function(msg) {
             this.error = "";

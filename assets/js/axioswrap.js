@@ -29,6 +29,7 @@ const getOptions = () => {
 }
 
 const handlePromissError = (err) => {
+    return
     const res = err.response
     if(!res) {
         console.log("no response from server")

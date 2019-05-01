@@ -35,6 +35,7 @@ import Member from "~/components/Member.vue";
 import Banner from "~/components//Banner";
 import AddPerson from "~/components/AddPerson.vue";
 export default {
+    middleware: "authenticated",
     data: function() {
         return {
             members: [],
