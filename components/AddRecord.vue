@@ -36,12 +36,12 @@ export default {
             request
                 .addRecord(this.id, this.detail, this.comment)
                 .then(response => {
-                    this.$emit("getRecord");
+                    this.$emit("onAdd");
                     this.close();
                 });
         },
         close: function() {
-            this.$emit("pageSwitch", false);
+            this.$emit("onClose", false);
         }
     },
     mounted: function(){

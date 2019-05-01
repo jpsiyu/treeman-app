@@ -112,11 +112,12 @@ export default {
 }
 
 .pagePerson-search__btnSearch {
-    background-color: blue;
+    background-color: lightseagreen;
     color: white;
-    padding: 5px 5px;
+    padding: 5px 10px;
     font-size: 18px;
     border-radius: 5px;
+    margin: 0 5px;
 }
 
 .pagePerson-search__btnAdd {

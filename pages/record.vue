@@ -1,8 +1,12 @@
 <template>
     <div class="record">
+        <div class="person" v-if="personInfo">
+            <p class="name">{{personInfo.name}}</p>
+            <button class="add" @click="pageSwitch(true)">Add</button>
+        </div>
         <AddRecord
-            @pageSwitch="pageSwitch"
-            @getRecord="getRecord"
+            @onClose="pageSwitch"
+            @onAdd="getRecord"
             :id="id"
             v-if="pageAddRecordState"
         ></AddRecord>
@@ -27,6 +31,7 @@ export default {
         return {
             id: "",
             pageAddRecordState: false,
+            personInfo: null,
             recordList: []
         };
     },
@@ -36,8 +41,14 @@ export default {
         pageSwitch: function(b) {
             this.pageAddRecordState = b;
         },
-        getRecord() {
-            request.getRecord(this.id).then(response => {
+        getPersonInfo: function() {
+            return request.getPersonById(this.id).then(response => {
+                const serverData = response.data;
+                this.personInfo = serverData.data ? serverData.data[0] : null;
+            });
+        },
+        getRecord: function() {
+            return request.getRecord(this.id).then(response => {
                 const serverData = response.data;
                 const data = serverData.data || [];
                 data.sort((a, b) => {
@@ -49,12 +60,37 @@ export default {
     },
     mounted: function() {
         this.id = this.$route.query.id;
-        this.getRecord();
+        this.getPersonInfo()
+            .then(_ => {
+                return this.getRecord();
+            })
+            .catch(err => console.log(err));
     }
 };
 </script>
 
 <style scoped>
+.person {
+    max-width: 500px;
+    font-weight: bold;
+    background-color: white;
+    padding: 3px 20px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add{
+  outline: none;
+  border: none;
+  background-color: seagreen;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
 .recordList {
     max-width: 500px;
     margin: auto;
