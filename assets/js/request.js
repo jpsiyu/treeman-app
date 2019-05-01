@@ -66,6 +66,11 @@ const delGroup = (id) => {
   return axioswrap.put("/api/deletegroup", { id })
 }
 
+const updateGroup = (id, members) => {
+  const ajaxData = { id, members }
+  return axioswrap.put("/api/updategroup", ajaxData)
+}
+
 
 export default {
   getToken,
@@ -83,4 +88,5 @@ export default {
   getAllGroup,
   addGroup,
   delGroup,
+  updateGroup,
 }

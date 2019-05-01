@@ -55,7 +55,6 @@ export default {
     },
     methods: {
         pageSwitch: function(b, data) {
-          console.log('switch', data)
             this.pageAddState = b;
             if (data) this.pageAddData = data;
             if (!b) this.pageAddData = null;
