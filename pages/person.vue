@@ -17,15 +17,16 @@
                 v-for="info in members"
                 :key="info.id"
                 :info="info"
-                @getAllPerson="getAllPerson"
-                @pageSwitch="pageSwitch"
+                @onModify="pageSwitch"
+                @onDelete="getAllPerson"
             />
         </div>
         <AddPerson
             v-if="pageAddState"
             :pageAddData="pageAddData"
-            @onModify="pageSwitch"
-            @onDelete="getAllPerson"
+            @onModify="getAllPerson"
+            @onAdd="getAllPerson"
+            @onClose="pageSwitch"
         ></AddPerson>
     </div>
 </template>
@@ -54,6 +55,7 @@ export default {
     },
     methods: {
         pageSwitch: function(b, data) {
+          console.log('switch', data)
             this.pageAddState = b;
             if (data) this.pageAddData = data;
             if (!b) this.pageAddData = null;

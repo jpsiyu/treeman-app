@@ -65,7 +65,7 @@ export default {
     },
     methods: {
         close: function() {
-            this.$emit("pageSwitch", false);
+            this.$emit("onClose", false);
         },
         onSubmit: function(event) {
             this.checkErrors = [];
@@ -85,13 +85,13 @@ export default {
                     this.gender
                 )
                 .then(res => {
-                    this.$emit("getAllPerson");
+                    this.$emit("onModify");
                     this.close();
                 });
         },
         addPerson() {
             request.genPerson(this.name, this.age, this.gender).then(res => {
-                this.$emit("getAllPerson");
+                this.$emit("onAdd");
                 this.close();
             });
         }

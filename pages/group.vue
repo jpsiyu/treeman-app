@@ -42,13 +42,6 @@ export default {
         setDefault() {
             this.select = this.groups.length > 0 ? this.groups[0]._id : 0;
         },
-        getAllPerson: function() {
-            return request.getAllPerson().then(res => {
-                const serverData = res.data;
-                const data = serverData.data || [];
-                this.members = data;
-            });
-        },
         getAllGroup: function() {
             return request.getAllGroup().then(res => {
                 const serverData = res.data;
@@ -72,7 +65,6 @@ export default {
         this.getAllGroup()
             .then(_ => {
                 this.setDefault();
-                return this.getAllPerson();
             })
             .catch(err => {
                 console.log(err);
