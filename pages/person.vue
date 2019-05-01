@@ -1,14 +1,17 @@
 <template>
     <div class="pagePerson">
-        <Banner @pageSwitch="pageSwitch"></Banner>
+        <Banner></Banner>
         <div class="pagePerson-search">
-            <input
-                type="text"
-                placeholder="search name"
-                @keydown.enter="search"
-                v-model="searchName"
-            >
-            <button @click="search">Search</button>
+            <div>
+                <input
+                    type="text"
+                    placeholder="search name"
+                    @keydown.enter="search"
+                    v-model="searchName"
+                >
+                <button class="button pagePerson-search__btnSearch" @click="search">Search</button>
+            </div>
+            <button class="button pagePerson-search__btnAdd" @click="pageSwitch(true)">+</button>
         </div>
         <div class="pagePerson-list">
             <Member
@@ -91,33 +94,39 @@ export default {
 }
 
 .pagePerson-search {
-    max-width: 500px;
+    max-width: 450px;
     margin: 30px auto;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .pagePerson-search input {
-    width: 60%;
-    border-radius: 10px;
+    width: 300px;
+    margin: 0;
     outline: none;
-    height: 30px;
+    height: 40px;
     border: none;
     font-size: 16px;
     padding: 3px 10px;
     box-sizing: border-box;
 }
 
-.pagePerson-search button {
-    outline: none;
-    border: none;
-    background-color: seagreen;
+.pagePerson-search__btnSearch {
+    background-color: blue;
     color: white;
-    padding: 0 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    height: 25px;
-    margin: 0 10px;
+    padding: 5px 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.pagePerson-search__btnAdd {
+    background-color: lightseagreen;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
 }
 
 .pagePerson-list {
@@ -127,5 +136,13 @@ export default {
     justify-content: center;
     flex-direction: column;
     padding: 10px;
+}
+
+button {
+    cursor: pointer;
+    line-height: 100%;
+    vertical-align: middle;
+    border: 0;
+    outline: 0;
 }
 </style>

@@ -1,12 +1,13 @@
 <template>
     <div class="banner-frame">
         <div class="banner">
-            <div class="grid"></div>
             <div class="grid">
                 <img class="logo" src="~/assets/images/treeman.png" @click="toHome">
+                <div class="link" @click="toHome">Home</div>
+                <div class="link" @click="toPerson">Person</div>
             </div>
+            <div class="grid"></div>
             <div class="grid">
-                <button class="add" @click="onAddClick">+</button>
             </div>
         </div>
     </div>
@@ -17,8 +18,8 @@ import { MacroGender } from "~/assets/js/macro";
 export default {
     name: "Banner",
     methods: {
-        onAddClick: function() {
-            this.$emit("pageSwitch", true);
+        toPerson: function() {
+            this.$router.push({ path: "/person" });
         },
         toHome: function() {
             this.$router.push({ path: "/" });
@@ -51,6 +52,10 @@ export default {
     width: auto;
     height: 60%;
     cursor: pointer;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 0 20px;
 }
 
 .grid {
@@ -78,6 +83,12 @@ export default {
     outline: none;
     border: none;
     user-select: none;
+}
+
+.link {
+    font-weight: bold;
+    padding: 0 20px;
+    cursor: pointer;
 }
 </style>
 

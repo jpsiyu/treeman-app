@@ -8,7 +8,13 @@
             v-if="pageAddRecordState"
         ></AddRecord>
         <div class="recordList">
-            <ARecord v-for="item in recordList" :key="item._id" :item="item" @onDelete="getRecord"></ARecord>
+            <ARecord
+                v-for="item in recordList"
+                :key="item._id"
+                :item="item"
+                @onDelete="getRecord"
+                @onModify="getRecord"
+            ></ARecord>
         </div>
     </div>
 </template>
@@ -33,12 +39,12 @@ export default {
         },
         getRecord() {
             request.getRecord(this.id).then(response => {
-                const serverData = response.data
+                const serverData = response.data;
                 const data = serverData.data || [];
                 data.sort((a, b) => {
                     return b.timestamp - a.timestamp;
                 });
-                this.recordList = data
+                this.recordList = data;
             });
         }
     },

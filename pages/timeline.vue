@@ -2,7 +2,13 @@
     <div class="timeline">
         <Banner></Banner>
         <div class="records">
-            <ARecord v-for="item in records" :key="item._id" :item="item" @onDelete="getAllRecord"></ARecord>
+            <ARecord
+                v-for="item in records"
+                :key="item._id"
+                :item="item"
+                @onDelete="getAllRecord"
+                @onModify="getAllRecord"
+            ></ARecord>
         </div>
     </div>
 </template>
@@ -35,6 +41,7 @@ export default {
 
 <style scoped>
 .records {
+    padding: 20px 0;
     max-width: 500px;
     margin: auto;
     display: flex;
