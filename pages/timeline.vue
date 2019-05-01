@@ -1,6 +1,5 @@
 <template>
     <div class="timeline">
-        <Banner></Banner>
         <div class="records">
             <ARecord
                 v-for="item in records"
@@ -14,16 +13,16 @@
 </template>
 
 <script>
-import Banner from "~/components/Banner";
 import request from "~/assets/js/request";
 import ARecord from "~/components/ARecord";
 export default {
-    components: { Banner, ARecord },
+    components: { ARecord },
     data: function() {
         return {
             records: []
         };
     },
+    layout: "withBanner",
     middleware: "authenticated",
     methods: {
         getAllRecord() {

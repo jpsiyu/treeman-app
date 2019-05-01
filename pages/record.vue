@@ -1,6 +1,5 @@
 <template>
     <div class="record">
-        <Banner @pageSwitch="pageSwitch"></Banner>
         <AddRecord
             @pageSwitch="pageSwitch"
             @getRecord="getRecord"
@@ -20,7 +19,6 @@
 </template>
 
 <script>
-import Banner from "~/components//Banner";
 import AddRecord from "~/components/AddRecord";
 import ARecord from "~/components/ARecord";
 import request from "~/assets/js/request";
@@ -32,7 +30,8 @@ export default {
             recordList: []
         };
     },
-    components: { Banner, AddRecord, ARecord },
+    layout: "withBanner",
+    components: { AddRecord, ARecord },
     methods: {
         pageSwitch: function(b) {
             this.pageAddRecordState = b;

@@ -1,6 +1,5 @@
 <template>
     <div class="pagePerson">
-        <Banner></Banner>
         <div class="pagePerson-search">
             <div>
                 <input
@@ -35,10 +34,10 @@
 import request from "~/assets/js/request";
 import shuffle from "~/assets/js/shuffle";
 import Member from "~/components/Member.vue";
-import Banner from "~/components//Banner";
 import AddPerson from "~/components/AddPerson.vue";
 export default {
     middleware: "authenticated",
+    layout: "withBanner",
     data: function() {
         return {
             members: [],
@@ -47,7 +46,7 @@ export default {
             searchName: ""
         };
     },
-    components: { Member, Banner, AddPerson },
+    components: { Member, AddPerson },
     watch: {
         searchName: function() {
             this.search();
