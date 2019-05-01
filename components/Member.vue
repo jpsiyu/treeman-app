@@ -86,7 +86,6 @@ export default {
 .member {
     user-select: none;
     width: 100%;
-    border-radius: 10px;
     cursor: pointer;
     position: relative;
     height: 50px;
@@ -98,7 +97,6 @@ export default {
     align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
     padding: 5px 20px;
     box-sizing: border-box;
 }

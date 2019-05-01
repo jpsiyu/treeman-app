@@ -201,17 +201,20 @@ export default {
 
 .title {
     color: gray;
+    margin-bottom: 20px;
 }
 
 .edit {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .btnEdit {
     background-color: lightcoral;
     color: white;
+    padding: 5px 8px;
+    border-radius: 50%;
 }
 
 .tabs {
@@ -257,7 +260,6 @@ export default {
 .btn {
     outline: none;
     border: none;
-    padding: 5px 20px;
     cursor: pointer;
 }
 
