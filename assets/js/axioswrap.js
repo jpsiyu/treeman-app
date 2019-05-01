@@ -30,6 +30,17 @@ const getOptions = () => {
 
 const handlePromissError = (err) => {
   console.log('catch error', err)
+  const res = err.response
+  if (!res) {
+    console.log("no response from server")
+    return
+  }
+  switch (res.status) {
+    case 401:
+      window.location.href = '/'
+      break
+  }
+  console.log('catch error', err)
   return
 }
 
