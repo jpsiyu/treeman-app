@@ -6,7 +6,7 @@
 export default {
     middleware: "authenticated",
     mounted: function() {
-        this.$router.push("/person");
+        this.$router.push("/timeline");
     }
 };
 </script>
