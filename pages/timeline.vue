@@ -2,7 +2,7 @@
     <div class="timeline">
         <Banner></Banner>
         <div class="records">
-            <ARecord v-for="item in records" :key="item._id" :item="item"></ARecord>
+            <ARecord v-for="item in records" :key="item._id" :item="item" @onDelete="getAllRecord"></ARecord>
         </div>
     </div>
 </template>
@@ -19,11 +19,16 @@ export default {
         };
     },
     middleware: "authenticated",
+    methods: {
+        getAllRecord() {
+            return request.getAllRecord().then(res => {
+                const serverMsg = res.data;
+                this.records = serverMsg.data;
+            });
+        }
+    },
     mounted() {
-        request.getAllRecord().then(res => {
-            const serverMsg = res.data;
-            this.records = serverMsg.data;
-        });
+        this.getAllRecord().catch(err => console.log(err));
     }
 };
 </script>

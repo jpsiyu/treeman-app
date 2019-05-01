@@ -49,7 +49,7 @@ export default {
     methods: {
         deleteRecord() {
             request.delRecord(this.item._id).then(response => {
-                this.$emit("getRecord");
+                this.$emit("onDelete");
             });
         },
         onMouseEnter() {
@@ -72,7 +72,7 @@ export default {
                 .updateRecord(this.item._id, this.detail, this.comment)
                 .then(res => {
                     this.showModify = false;
-                    this.$emit("getRecord");
+                    this.$emit("onModify");
                 });
         }
     }

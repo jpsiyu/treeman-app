@@ -8,7 +8,7 @@
             v-if="pageAddRecordState"
         ></AddRecord>
         <div class="recordList">
-            <ARecord v-for="item in recordList" :key="item._id" :item="item" @getRecord="getRecord"></ARecord>
+            <ARecord v-for="item in recordList" :key="item._id" :item="item" @onDelete="getRecord"></ARecord>
         </div>
     </div>
 </template>
