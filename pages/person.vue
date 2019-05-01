@@ -24,8 +24,8 @@
         <AddPerson
             v-if="pageAddState"
             :pageAddData="pageAddData"
-            @pageSwitch="pageSwitch"
-            @getAllPerson="getAllPerson"
+            @onModify="pageSwitch"
+            @onDelete="getAllPerson"
         ></AddPerson>
     </div>
 </template>

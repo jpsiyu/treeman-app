@@ -33,11 +33,11 @@ export default {
     methods: {
         del: function() {
             request.delPerson(this.info._id).then(res => {
-                this.$emit("getAllPerson");
+                this.$emit("onDelete");
             });
         },
         modify: function() {
-            this.$emit("pageSwitch", true, this.info);
+            this.$emit("onModify", true, this.info);
         },
         onMouseEnter: function() {
             this.timer.start(_ => {

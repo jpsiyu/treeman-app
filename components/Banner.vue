@@ -5,10 +5,10 @@
                 <img class="logo" src="~/assets/images/treeman.png" @click="toHome">
                 <div class="link" @click="toHome">Home</div>
                 <div class="link" @click="toPerson">Person</div>
+                <div class="link" @click="toGroup">Group</div>
             </div>
             <div class="grid"></div>
-            <div class="grid">
-            </div>
+            <div class="grid"></div>
         </div>
     </div>
 </template>
@@ -20,6 +20,9 @@ export default {
     methods: {
         toPerson: function() {
             this.$router.push({ path: "/person" });
+        },
+        toGroup: function() {
+            this.$router.push({ path: "/group" });
         },
         toHome: function() {
             this.$router.push({ path: "/" });

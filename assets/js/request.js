@@ -53,6 +53,15 @@ const getAllRecord = () => {
   return axioswrap.get("/api/getallrecord")
 }
 
+const getAllGroup = () => {
+  return axioswrap.get("/api/getallgroup")
+}
+
+const addGroup = (name) => {
+  const ajaxData = { name }
+  return axioswrap.post("/api/addgroup", ajaxData)
+}
+
 
 export default {
   getToken,
@@ -67,4 +76,6 @@ export default {
   addRecord,
   updateRecord,
   getAllRecord,
+  getAllGroup,
+  addGroup,
 }
