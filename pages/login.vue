@@ -90,7 +90,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px 0px;
+    padding: 30px 20px;
     position: relative;
 }
 
