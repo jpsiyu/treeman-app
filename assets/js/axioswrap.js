@@ -29,7 +29,6 @@ const getOptions = () => {
 }
 
 const handlePromissError = (err) => {
-  console.log('catch error', err)
   const res = err.response
   if (!res) {
     console.log("no response from server")
@@ -39,9 +38,10 @@ const handlePromissError = (err) => {
     case 401:
       window.location.href = '/'
       break
+    default:
+      console.log('catch error', err)
+      break
   }
-  console.log('catch error', err)
-  return
 }
 
 export default {
