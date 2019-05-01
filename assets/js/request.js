@@ -45,6 +45,11 @@ const updateRecord = (id, detail, comment) => {
     return axioswrap.put("/api/updaterecord", ajaxData)
 }
 
+const getAllRecord = () => {
+    return axioswrap.get("/api/getallrecord")
+}
+
+
 export default {
     getToken,
     genPerson,
@@ -56,4 +61,5 @@ export default {
     delRecord,
     addRecord,
     updateRecord,
+    getAllRecord,
 }

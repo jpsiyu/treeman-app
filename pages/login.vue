@@ -48,7 +48,7 @@ export default {
                     const serverData = res.data;
                     if (serverData.ok) {
                         this.$store.commit("setTokenStr", serverData.data);
-                        this.$router.push("/");
+                        this.$router.push(this.fromWhere());
                     } else {
                         this.setError(serverData.errorMsg);
                     }
@@ -62,6 +62,9 @@ export default {
             this.timer = setTimeout(_ => {
                 this.error = "";
             }, 1000);
+        },
+        fromWhere: function() {
+            return this.$route.query.from;
         }
     },
     mounted: function() {

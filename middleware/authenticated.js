@@ -1,5 +1,6 @@
-export default function ({ store, redirect }) {
+export default function (context) {
+  const { store, redirect, route} = context
   if (!store.state.tokenStr) {
-    redirect('/login')
+    redirect(`/login?from=${route.path}`)
   }
 }

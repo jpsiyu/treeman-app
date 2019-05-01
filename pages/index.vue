@@ -2,12 +2,11 @@
     <div></div>
 </template>
 
-
 <script>
 export default {
+    middleware: "authenticated",
     mounted: function() {
-      const tokenStr = this.$store.state.tokenStr
-      tokenStr ? this.$router.push("/person") : this.$router.push("/login")
+        this.$router.push("/person");
     }
 };
 </script>
