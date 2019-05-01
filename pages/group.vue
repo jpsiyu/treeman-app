@@ -48,10 +48,8 @@
                 </div>
             </div>
         </Container>
-        <Container>
-            <div class="members" v-if="!showEditMember">
-                <Member v-for="info in members" :key="info.id" :info="info"/>
-            </div>
+        <Container class="members" v-if="!showEditMember">
+            <Member v-for="info in members" :key="info.id" :info="info"/>
         </Container>
     </div>
 </template>
@@ -225,14 +223,14 @@ export default {
     position: relative;
     border: 1px gray solid;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     margin: 5px;
 }
 
 .tabName {
-    padding: 8px 20px;
+    padding: 5px 20px;
 }
 
 .tabDel {
@@ -312,5 +310,9 @@ export default {
 .btnX {
     color: lightcoral;
     font-weight: bold;
+}
+
+.members{
+  padding: 0;
 }
 </style>

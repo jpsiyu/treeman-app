@@ -94,15 +94,16 @@ export default {
 }
 
 .pagePerson-search {
-    max-width: 450px;
+    max-width: 500px;
     margin: 30px auto;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .pagePerson-search input {
-    width: 300px;
+    width: 250px;
     margin: 0;
     outline: none;
     height: 40px;

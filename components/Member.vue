@@ -86,7 +86,6 @@ export default {
 .member {
     user-select: none;
     width: 100%;
-    margin-bottom: 10px;
     border-radius: 10px;
     cursor: pointer;
     position: relative;
@@ -100,6 +99,8 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    padding: 5px 20px;
+    box-sizing: border-box;
 }
 
 .member-float--over {

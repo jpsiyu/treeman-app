@@ -9,6 +9,7 @@
     max-width: 500px;
     padding: 10px;
     margin: 10px auto;
+    box-sizing: border-box;
 }
 </style>
 
