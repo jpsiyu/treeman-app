@@ -9,7 +9,7 @@
         <div class="member-float" :class="{'member-float--over': over}">
             <img class="member-float__head" :src="info.gender | imagePath">
             <span class="member-float__name">{{info.name}}</span>
-            <button class="member-float__del" v-if="showOpBtn" @click.stop="del">Delete</button>
+            <button class="member-float__del" v-if="false && showOpBtn" @click.stop="del">Delete</button>
             <button class="member-float__modify" v-if="showOpBtn" @click.stop="modify">Modify</button>
         </div>
     </div>
@@ -36,8 +36,8 @@ export default {
                 this.$emit("getAllPerson");
             });
         },
-        modify: function(){
-            this.$emit("pageSwitch", true, this.info)
+        modify: function() {
+            this.$emit("pageSwitch", true, this.info);
         },
         onMouseEnter: function() {
             this.timer.start(_ => {
