@@ -109,7 +109,7 @@
 
 <script>
 import Member from "~/components/Member";
-import Container from "~/components/container";
+import Container from "~/components/Container";
 import request from "~/assets/js/request";
 export default {
   layout: "withBanner",
