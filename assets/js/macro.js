@@ -1,10 +1,10 @@
 const MacroGender = {
-    Male: 1,
-    Female: 2,
+  Male: 1,
+  Female: 2,
 }
 
 const MacroEvent = {
-    AddPerson: "addperson"
+  AddPerson: "addperson"
 }
 
 export { MacroGender, MacroEvent }

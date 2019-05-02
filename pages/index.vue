@@ -1,13 +1,13 @@
 <template>
-    <div></div>
+  <div></div>
 </template>
 
 <script>
 export default {
-    middleware: "authenticated",
-    mounted: function() {
-        this.$router.push("/timeline");
-    }
+  middleware: "authenticated",
+  mounted: function () {
+    this.$router.push("/timeline");
+  }
 };
 </script>
 
