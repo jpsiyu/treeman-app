@@ -46,10 +46,17 @@
     <Container class="group-persons">
       <div class="group-edit">
         <div class="group-title">Members</div>
-        <button
-          class="btn group-edit__btn"
-          @click="clickEditMember"
-        >E</button>
+        <div>
+          <button
+            class="btn group-edit__sure"
+            @click="clickSure"
+            v-if="showEditMember"
+          >Sure</button>
+          <button
+            class="btn group-edit__btn"
+            @click="clickEditMember"
+          >E</button>
+        </div>
       </div>
       <div
         class="group-double"
@@ -127,16 +134,18 @@ export default {
       this.showEditMember = !this.showEditMember;
       if (this.showEditMember) {
         this.rightList = this.members.map(e => Object.assign({}, e));
-      } else {
-        this.updateGroup()
-          .then(_ => {
-            return this.getAllGroup();
-          })
-          .then(_ => {
-            this.rightList = [];
-            this.setGroupMembers();
-          });
       }
+    },
+    clickSure: function () {
+      this.updateGroup()
+        .then(_ => {
+          return this.getAllGroup();
+        })
+        .then(_ => {
+          this.clickEditMember()
+          this.rightList = [];
+          this.setGroupMembers();
+        });
     },
     clickTab: function (groupId) {
       this.select = groupId;
@@ -261,6 +270,13 @@ export default {
   color: white;
   padding: 5px 8px;
   border-radius: 50%;
+}
+
+.group-edit__sure {
+  background-color: seagreen;
+  color: white;
+  padding: 5px 15px;
+  margin: 0 10px;
 }
 
 .group-tabs {
