@@ -2,7 +2,7 @@
   <div class="group">
     <Container class="group-top">
       <div class="group-edit">
-        <div class="group-edit__title">Groups</div>
+        <div class="group-title">Groups</div>
         <button
           class="btn group-edit__btn"
           @click="clickEdit"
@@ -30,7 +30,7 @@
         class="group-add"
         v-if="showEdit"
       >
-        <p class="labelAdd">Group Name:</p>
+        <p class="group-title">Group Name:</p>
         <input
           class="group-add__input"
           v-model="inputName"
@@ -45,7 +45,7 @@
     </Container>
     <Container class="group-persons">
       <div class="group-edit">
-        <div class="group-edit__title">Members</div>
+        <div class="group-title">Members</div>
         <button
           class="btn group-edit__btn"
           @click="clickEditMember"
@@ -245,7 +245,7 @@ export default {
   background-color: white;
 }
 
-.group-edit__title {
+.group-title {
   color: gray;
   margin-bottom: 20px;
 }
@@ -270,7 +270,7 @@ export default {
 
 .group-tab {
   position: relative;
-  border: 1px gray solid;
+  border: 1px lightgray solid;
   cursor: pointer;
   border-radius: 20px;
   display: flex;
@@ -319,13 +319,14 @@ export default {
 .group-add__input {
   outline: none;
   border: none;
-  border-bottom: 1px gray solid;
+  border-bottom: 1px lightgray solid;
   width: 200px;
+  padding: 5px;
   margin: 0 20px;
 }
 
 .selected {
-  background-color: seagreen;
+  background-color: blueviolet;
   color: white;
 }
 
