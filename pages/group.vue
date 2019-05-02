@@ -1,24 +1,24 @@
 <template>
   <div class="group">
-    <Container class="top">
-      <div class="edit">
-        <div class="title">Groups</div>
+    <Container class="group-top">
+      <div class="group-edit">
+        <div class="group-edit__title">Groups</div>
         <button
-          class="btn btnEdit"
+          class="btn group-edit__btn"
           @click="clickEdit"
         >E</button>
       </div>
-      <div class="tabs">
+      <div class="group-tabs">
         <div
-          class="tab"
+          class="group-tab"
           :class="{ selected: select && select == item._id }"
           v-for="item in groups"
           :key="item._id"
           @click="clickTab(item._id)"
         >
-          <span class="tabName">{{ item.name }}</span>
+          <span class="group-tab__name">{{ item.name }}</span>
           <button
-            class="tabDel"
+            class="group-tab__del"
             v-if="showEdit"
             @click.stop="clickDel(item)"
           >
@@ -27,58 +27,58 @@
         </div>
       </div>
       <div
-        class="groupAdd"
+        class="group-add"
         v-if="showEdit"
       >
         <p class="labelAdd">Group Name:</p>
         <input
-          class="inputAdd"
+          class="group-add__input"
           v-model="inputName"
           type="text"
           placeholder="input group name"
         />
         <button
-          class="btn btnAdd"
+          class="btn group-add__btn"
           @click="addGroup"
         >Add</button>
       </div>
     </Container>
-    <Container class="persons">
-      <div class="edit">
-        <div class="title">Members</div>
+    <Container class="group-persons">
+      <div class="group-edit">
+        <div class="group-edit__title">Members</div>
         <button
-          class="btn btnEdit"
+          class="btn group-edit__btn"
           @click="clickEditMember"
         >E</button>
       </div>
       <div
-        class="doubleList"
+        class="group-double"
         v-if="showEditMember"
       >
-        <div class="personList">
+        <div class="group-personList">
           <div
-            class="personItem"
+            class="group-personItem"
             v-for="item in leftList"
             :key="item._id"
           >
             <p>{{ item.name }}</p>
             <button
-              class="btn btnRight"
+              class="btn group-personItem__right"
               @click="toGroup(item)"
             >
               -->
             </button>
           </div>
         </div>
-        <div class="personList">
+        <div class="group-personList">
           <div
-            class="personItem"
+            class="group-personItem"
             v-for="item in rightList"
             :key="item._id"
           >
             <p>{{ item.name }}</p>
             <button
-              class="btn btnX"
+              class="btn group-personItem__btnX"
               @click="rmGroup(item)"
             >
               X
@@ -88,7 +88,7 @@
       </div>
     </Container>
     <Container
-      class="members"
+      class="group-members"
       v-if="!showEditMember"
     >
       <Member
@@ -241,34 +241,34 @@ export default {
   padding: 20px 0;
 }
 
-.top {
+.group-top {
   background-color: white;
 }
 
-.title {
+.group-edit__title {
   color: gray;
   margin-bottom: 20px;
 }
 
-.edit {
+.group-edit {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.btnEdit {
-  background-color: lightcoral;
+.group-edit__btn {
+  background-color: lightblue;
   color: white;
   padding: 5px 8px;
   border-radius: 50%;
 }
 
-.tabs {
+.group-tabs {
   display: flex;
   flex-wrap: wrap;
 }
 
-.tab {
+.group-tab {
   position: relative;
   border: 1px gray solid;
   cursor: pointer;
@@ -278,11 +278,12 @@ export default {
   margin: 5px;
 }
 
-.tabName {
+.group-tab__name {
   padding: 5px 20px;
+  font-size: 14px;
 }
 
-.tabDel {
+.group-tab__del {
   position: absolute;
   right: -10px;
   top: -10px;
@@ -290,13 +291,13 @@ export default {
   width: 25px;
   height: 25px;
   cursor: pointer;
-  background-color: lightcoral;
+  background-color: lightblue;
   color: white;
   border: none;
   outline: none;
 }
 
-.groupAdd {
+.group-add {
   display: flex;
   background-color: white;
   align-items: center;
@@ -309,12 +310,13 @@ export default {
   cursor: pointer;
 }
 
-.btnAdd {
-  background-color: lightcoral;
+.group-add__btn {
+  background-color: lightblue;
   color: white;
+  padding: 5px 20px;
 }
 
-.inputAdd {
+.group-add__input {
   outline: none;
   border: none;
   border-bottom: 1px gray solid;
@@ -327,15 +329,15 @@ export default {
   color: white;
 }
 
-.persons {
+.group-persons {
   background-color: white;
 }
 
-.doubleList {
+.group-double {
   display: flex;
 }
 
-.personList {
+.group-personList {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -343,24 +345,24 @@ export default {
   align-items: center;
 }
 
-.personItem {
+.group-personItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 70%;
 }
 
-.btnRight {
+.group-personItem__right {
   color: seagreen;
   font-weight: bold;
 }
 
-.btnX {
+.group-personItem__btnX {
   color: lightcoral;
   font-weight: bold;
 }
 
-.members {
+.group-members {
   padding: 0;
 }
 </style>
