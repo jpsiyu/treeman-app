@@ -6,69 +6,69 @@ const getToken = (user, password) => {
 
 const genPerson = (name, age, gender) => {
   const ajaxData = { name, age, gender }
-  return axioswrap.post("/api/genperson", ajaxData)
+  return axioswrap.post("/api/person/gen", ajaxData)
 }
 
 const getAllPerson = () => {
-  return axioswrap.get("/api/allperson")
+  return axioswrap.get("/api/person/all")
 }
 
 const updatePerson = (id, name, age, gender) => {
   const ajaxData = { id, name, age, gender }
-  return axioswrap.put("/api/updateperson", ajaxData)
+  return axioswrap.put("/api/person/update", ajaxData)
 }
 
 const delPerson = (id) => {
-  return axioswrap.put("/api/deleteperson", { id })
+  return axioswrap.put("/api/person/del", { id })
 }
 
 const getPersonByName = (name) => {
-  return axioswrap.get(`/api/findperson?name=${name}`)
+  return axioswrap.get(`/api/person/find?name=${name}`)
 }
 
 const getPersonById = (id) => {
-  return axioswrap.get(`/api/findpersonbyid?id=${id}`)
+  return axioswrap.get(`/api/person/findbyid?id=${id}`)
 }
 
 const getRecord = (id) => {
-  return axioswrap.get(`/api/record?id=${id}`)
+  return axioswrap.get(`/api/record/person?id=${id}`)
 }
 
 const delRecord = (id) => {
   const ajaxData = { id };
-  return axioswrap.put("/api/deleterecord", ajaxData)
+  return axioswrap.put("/api/record/del", ajaxData)
 }
 
 const addRecord = (id, detail, comment) => {
   const ajaxData = { detail, comment, id }
-  return axioswrap.post("/api/addrecord", ajaxData)
+  return axioswrap.post("/api/record/add", ajaxData)
 }
 
 const updateRecord = (id, detail, comment) => {
   const ajaxData = { detail, comment, id }
-  return axioswrap.put("/api/updaterecord", ajaxData)
+  return axioswrap.put("/api/record/update", ajaxData)
 }
 
 const getAllRecord = () => {
-  return axioswrap.get("/api/getallrecord")
+  return axioswrap.get("/api/record/all")
 }
 
 const getAllGroup = () => {
-  return axioswrap.get("/api/getallgroup")
+  return axioswrap.get("/api/group/all")
 }
 
 const addGroup = (name) => {
   const ajaxData = { name }
-  return axioswrap.post("/api/addgroup", ajaxData)
+  return axioswrap.post("/api/group/add", ajaxData)
 }
 
 const delGroup = (id) => {
-  return axioswrap.put("/api/deletegroup", { id })
+  return axioswrap.put("/api/group/del", { id })
 }
 
 const updateGroup = (id, members) => {
   const ajaxData = { id, members }
-  return axioswrap.put("/api/updategroup", ajaxData)
+  return axioswrap.put("/api/group/update", ajaxData)
 }
 
 
