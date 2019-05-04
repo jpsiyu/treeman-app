@@ -55,6 +55,7 @@
           >Sure</button>
           <button
             class="btn group-edit__btn"
+            :class="{'group-edit__btn--r': showEditMember}"
             @click="clickEditMember"
           >E</button>
         </div>
