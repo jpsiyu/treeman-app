@@ -5,6 +5,7 @@
         <div class="group-title">Groups</div>
         <button
           class="btn group-edit__btn"
+          :class="{'group-edit__btn--r': showEdit}"
           @click="clickEdit"
         >E</button>
       </div>
@@ -272,6 +273,10 @@ export default {
   border-radius: 50%;
 }
 
+.group-edit__btn--r {
+  transform: rotateZ(90deg);
+}
+
 .group-edit__sure {
   background-color: seagreen;
   color: white;
@@ -295,7 +300,7 @@ export default {
 }
 
 .group-tab__name {
-  padding: 5px 20px;
+  padding: 5px 30px;
   font-size: 14px;
 }
 
@@ -307,7 +312,7 @@ export default {
   width: 25px;
   height: 25px;
   cursor: pointer;
-  background-color: lightblue;
+  background-color: red;
   color: white;
   border: none;
   outline: none;
@@ -327,7 +332,7 @@ export default {
 }
 
 .group-add__btn {
-  background-color: lightblue;
+  background-color: seagreen;
   color: white;
   padding: 5px 20px;
 }
@@ -342,7 +347,7 @@ export default {
 }
 
 .selected {
-  background-color: blueviolet;
+  background-color: seagreen;
   color: white;
 }
 
